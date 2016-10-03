@@ -1,7 +1,7 @@
 {
   "name": "vueApp",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Boilerplate for learning curve - migrating from angular structure to VueJS",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -28,8 +28,12 @@
     "vue-router": "^2.0.0-rc.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=development node build/dev-server.js",
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mehowp/vueApp.git"
+  },
+  "author": "mehowp",
   "license": "ISC"
 }
