@@ -11,7 +11,9 @@ import sourcemaps from 'gulp-sourcemaps';
 const client = config.client;
 const sever = config.server;
 
-gulp.task('default', ['build:client'], () => {
+
+gulp.task('default', ['build:client'], () => { });
+gulp.task('watch', ['build:client'], () => {
 
     gulp.watch(client.styles + 'util/**/*.scss', ['sass:utilities'])
         .on('change', (file) => {

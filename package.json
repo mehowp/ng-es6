@@ -41,7 +41,8 @@
     "vue-router": "^2.0.0-rc.7"
   },
   "scripts": {
-    "start": "gulp --silent"
+    "start": "gulp",
+    "watch": "gulp watch --silent"
   },
   "repository": {
     "type": "git",
