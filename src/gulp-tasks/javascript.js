@@ -22,7 +22,7 @@ gulp.task("lint", () => {
 
 
             if (!!result.messages.length) {
-                gutil.log(`${chalk.cyan(result.filePath)}`);
+                gutil.log(`${chalk.cyan(helpers.logOnChange(result.filePath, '/src/client', 'eslint'))}`);
             
             if (!!result.warningCount) {
                 gutil.log(`# Warnings: ${chalk.yellow(result.warningCount)}`);

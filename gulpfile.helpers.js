@@ -7,13 +7,27 @@ module.exports = () => {
 
     let helperFunctions = {
 
-        logOnChange: (file, cutPath) => {
-            file = file.path;
+        logOnChange: (file, cutPath, type) => {
+            if (file.path) {
+                file = file.path;
+            }
 
-            file = file.replace(__dirname, '');
+            file = file.replace(rootdir, '');
             file = file.replace(cutPath, '');
+            var isEslint = function () {
 
-            gutil.log(chalk.yellow(chalk.dim('File ') + chalk.red(file) + chalk.dim(' has changed')));
+                if (type) {
+                    return '';
+                }
+                return chalk.dim(' has changed');
+            }
+
+            var output = chalk.yellow(chalk.dim('File ') + chalk.red(file) + isEslint());
+            if(type){
+                gutil.log(output);
+            }
+            
+            return output;
         },
 
         joinPath: (matchPath) => {
