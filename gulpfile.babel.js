@@ -15,17 +15,17 @@ gulp.task('default', ['build:client'], () => {
 
     gulp.watch(client.styles + 'util/**/*.scss', ['sass:utilities'])
         .on('change', (file) => {
-            console.log(fileHasChangedMessage(file.path));
+            fileHasChangedMessage(file.path);
         });
 
     gulp.watch(client.styles + 'defaults/**/*.scss', ['sass:defaults'])
         .on('change', (file) => {
-            console.log(fileHasChangedMessage(file.path));
+            fileHasChangedMessage(file.path);
         });
 
     gulp.watch(client.templates + '**/*.jade', ['templates'])
         .on('change', (file) => {
-            console.log(fileHasChangedMessage(file.path));
+            fileHasChangedMessage(file.path);
         });
 });
 
@@ -79,6 +79,6 @@ const fileHasChangedMessage = (file) => {
     file = file.replace(__dirname, '');
     file = file.replace('/src/client', '');
 
-    return outputTime() + chalk.yellow(chalk.dim(' File ') + file + chalk.dim(' has changed'));
+    console.log(outputTime() + chalk.yellow(chalk.dim(' File ') + file + chalk.dim(' has changed')));
 }
 
