@@ -1,0 +1,11 @@
+{
+  "client": {
+    "scripts": "/src/client/scripts/",
+    "styles": "/src/client/styles/",
+    "templates": "/src/client/templates/"
+  },
+
+  "server": {
+
+  }
+}
