@@ -4,8 +4,5 @@
     "styles": "./src/client/styles/",
     "templates": "./src/client/templates/"
   },
-
-  "server": {
-
-  }
+  "server": {}
 }
