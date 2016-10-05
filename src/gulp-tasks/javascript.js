@@ -25,14 +25,16 @@ gulp.task("lint", () => {
                 gutil.log(`${chalk.cyan(helpers.logOnChange(result.filePath, '/src/client', 'eslint'))}`);
             
             if (!!result.warningCount) {
-                gutil.log(`# Warnings: ${chalk.yellow(result.warningCount)}`);
+                gutil.log(`Warnings: ${chalk.yellow(result.warningCount)}`);
             }
             if (!!result.errorCount) {
                 var line = result.messages[0].line;
                 var column = result.messages[0].column;
-                gutil.log(`# Errors: ${chalk.red(result.errorCount)}`);
-                gutil.log(chalk.red(result.messages[0].message + ' at ' + chalk.yellow(line + ':' + column)));
+                gutil.log(`Errors: ${chalk.red(result.errorCount)}`);
+                gutil.log('# Linter: '+chalk.red(result.messages[0].message.slice(0, -1)) + ' at ' + chalk.yellow(line + ':' + column));
 
+            }else{
+                gutil.log(chalk.green('No issues!'));
             }
         }
 

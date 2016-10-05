@@ -22,12 +22,13 @@ module.exports = () => {
                 return chalk.dim(' has changed');
             }
 
-            var output = chalk.yellow(chalk.dim('File ') + chalk.red(file) + isEslint());
-            if(type){
-                gutil.log(output);
+            var output = chalk.white('File ' + chalk.dim(file) + isEslint());
+            if (!type) {
+                console.log(output);
+            } else {
+                return output;
             }
-            
-            return output;
+
         },
 
         joinPath: (matchPath) => {
