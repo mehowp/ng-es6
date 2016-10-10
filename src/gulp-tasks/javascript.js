@@ -14,7 +14,7 @@ import friendlyFormatter from 'eslint-friendly-formatter';
 
 
 gulp.task("lint", () => {
-    gulp.src([client.scripts + "main.js", client.scripts + "**/*.js"])
+    gulp.src([client.scripts + "main.js", client.scripts + "**/*.js", "!**/templateCache.js"])
         .pipe(eslint())
         // .pipe(eslint.format(friendlyFormatter))
         .pipe(eslint.result(result => {
@@ -28,11 +28,14 @@ gulp.task("lint", () => {
                 gutil.log(`Warnings: ${chalk.yellow(result.warningCount)}`);
             }
             if (!!result.errorCount) {
-                var line = result.messages[0].line;
-                var column = result.messages[0].column;
                 gutil.log(`Errors: ${chalk.red(result.errorCount)}`);
-                gutil.log('# Linter: '+chalk.red(result.messages[0].message.slice(0, -1)) + ' at ' + chalk.yellow(line + ':' + column));
+                
+                result.messages.map(function(e){
+                var line = e.line;
+                var column = e.column;
+                gutil.log('# Linter: '+chalk.red(e.message.slice(0, -1)) + ' at ' + chalk.yellow(line + ':' + column));
 
+                })
             }else{
                 gutil.log(chalk.green('No issues!'));
             }
@@ -48,14 +51,18 @@ gulp.task('build:javascript', ['lint'], () => {
     })
         .transform({ extensions: ['js'] }, babelify));
 
-    return b.bundle()
+    let stream =  b.bundle()
         .pipe(source('bundle.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({ loadMaps: true }))
         // Add transformation tasks to the pipeline here.
-        .pipe(uglify())
+     //   .pipe(uglify())
         .on('error', gutil.log)
         .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest('./build/client/javascript/'));
+        .pipe(gulp.dest('./build/scripts/'));
+
+        stream.on('error', function() {
+            gutil.log(chalk.red('Error!!'));
+        });
 
 })

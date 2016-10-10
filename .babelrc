@@ -1,5 +1,10 @@
 {
-  "presets": ["latest", "stage-2"],
+  "presets": [
+    "latest",
+    "stage-2"
+  ],
   "comments": false,
-  "plugins": ["transform-strict-mode"]
+  "plugins": [
+    "transform-strict-mode"
+  ]
 }

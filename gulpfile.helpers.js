@@ -14,21 +14,15 @@ module.exports = () => {
 
             file = file.replace(rootdir, '');
             file = file.replace(cutPath, '');
-            var isEslint = function () {
+            const isEslint = function () {
 
                 if (type) {
                     return '';
                 }
                 return chalk.dim(' has changed');
             }
-
-            var output = chalk.white('File ' + chalk.dim(file) + isEslint());
-            if (!type) {
-                console.log(output);
-            } else {
-                return output;
-            }
-
+            const output = chalk.cyan('File ' + chalk.dim(file) + isEslint());
+            return output;
         },
 
         joinPath: (matchPath) => {

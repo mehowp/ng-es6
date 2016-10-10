@@ -4,5 +4,21 @@
     "styles": "./src/client/styles/",
     "templates": "./src/client/templates/"
   },
-  "server": {}
+  "server": {
+    "port": "3000",
+    "ip": "0.0.0.0",
+    "path": "./src/server/",
+    "assets": "./build/",
+    "controllers": "./src/server/controllers",
+    "models": "./src/server/models",
+    "scripts": "./build/scripts/",
+    "styles": "./build/styles/",
+    "templates": "./build/templates/",
+    "db": {
+      "user": "",
+      "password": "",
+      "host": "",
+      "name": ""
+    }
+  }
 }

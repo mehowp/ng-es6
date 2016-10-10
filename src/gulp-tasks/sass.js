@@ -17,7 +17,7 @@ gulp.task('sass:utilities', () => {
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(postcss(processors))
         //.pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest('./build/client/styles'))
+        .pipe(gulp.dest('./build/styles'))
 })
 
 gulp.task('sass:defaults', () => {
@@ -26,5 +26,5 @@ gulp.task('sass:defaults', () => {
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(postcss(processors))
       //  .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest('./build/client/styles'))
+        .pipe(gulp.dest('./build/styles'))
 })

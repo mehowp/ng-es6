@@ -15,5 +15,12 @@
     },
     "parserOptions": {
         "sourceType": "module"
-    }
+    },
+  "globals": {
+    "gulp": true,
+    "angular": true,
+    "config": true,
+    "client": true,
+    "server": true
+  }
 }

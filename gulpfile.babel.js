@@ -14,7 +14,7 @@ global.server = config.server;
 
 require('require-dir')('./src/gulp-tasks');
 
-gulp.task('default', ['watch'], () => {
+gulp.task('default', ['nodemon'], () => {
 
 });
 

@@ -20,7 +20,7 @@ gulp.task('watch', ['build:client'], () => {
             helpers.logOnChange(file, '/src/client');
         });
 
-    gulp.watch(client.scripts + '**/*.js', ['build:javascript'])
+    gulp.watch(client.scripts + '**/*.js', ['build:javascript', 'templates'])
         .on('change', (file) => {
             helpers.logOnChange(file, '/src/client');
         });

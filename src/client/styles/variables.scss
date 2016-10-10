@@ -16,17 +16,17 @@ $fwRange: (100, 200, 300, 400, 500, 600, 700, 800, 900);
 
 @mixin respond-to($media) {
      @if $media == s{
-        @media (max-width: $break-medium) {
+        @media (min-width: $break-small) and (max-width: calc($break-medium -1px)) {
              @content;
         }
     }
     @else if $media == m {
-         @media (min-width: $break-medium) and (max-width: $break-large){
+         @media (min-width: $break-medium) and (max-width: calc($break-large -1px)){
             @content;
         }
     }
     @else if $media == l {
-         @media (min-width: $break-large) and (max-width: $break-extra){
+         @media (min-width: $break-large) and (max-width: calc($break-extra -1px)){
             @content;
         }
     }
