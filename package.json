@@ -56,7 +56,8 @@
   },
   "scripts": {
     "start": "gulp --silent",
-    "client": "gulp build:client"
+    "client": "gulp build:client",
+    "postinstall": "gulp build:client"
   },
   "repository": {
     "type": "git",
