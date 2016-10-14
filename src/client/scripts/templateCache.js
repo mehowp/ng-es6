@@ -1,3 +1,5 @@
-import angular from 'angular'; export default angular.module('templateCache', []).run(['$templateCache', function($templateCache) {$templateCache.put('footer.html','<p>ok</p>');
-$templateCache.put('header.html','<p>this is header</p>');
-$templateCache.put('home.html','<p>this is home page, u can do what u want to do</p>');}]);
+import angular from 'angular'; export default angular.module('templateCache', []).run(['$templateCache', function($templateCache) {$templateCache.put('templates/404.html','<h1>404</h1><p>Sorry, error has occuried.</p>');
+$templateCache.put('templates/footer.html','<div class="container"><p>this is footer</p></div>');
+$templateCache.put('templates/header.html','<div class="container"><p>this is header</p></div>');
+$templateCache.put('templates/home.html','<p>this is home page, u can do what u want to do</p>');
+$templateCache.put('templates/index.html','<html><head><title></title><base href="/"/><link href="./css/utilities.css" rel="stylesheet"/><link href="./css/main.css" rel="stylesheet"/></head><body><header ui-view="header"><nav></nav></header><section class="preloader" ng-if="loadingView"><div class="windows8"><div class="wBall" id="wBall_1"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_2"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_3"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_4"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_5"><div class="wInnerBall"></div></div></div></section><section class="container container-ui-view" ui-view=""></section><footer ui-view="footer"></footer><script src="./scripts/bundle.js"></script></body></html>');}]);

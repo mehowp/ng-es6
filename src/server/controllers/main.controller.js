@@ -2,13 +2,14 @@
 //in controllers/User
 let controller = (req, res) => {
 
-    res
-        .status(200)
-        .json({message: 'ok'})
+    res.render('index');
+
 }
 
+
+
 module.exports = {
-    route: '/api',
+    route: '/',
     controller: controller
 
 }

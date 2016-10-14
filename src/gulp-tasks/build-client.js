@@ -1,3 +1,3 @@
-gulp.task('build:client', ['templates', 'sass:defaults', 'sass:utilities', 'build:javascript'], () => {
+gulp.task('build:client', ['sass:defaults', 'sass:utilities', 'build:javascript'], () => {
 
 });

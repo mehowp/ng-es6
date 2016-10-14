@@ -13,7 +13,7 @@ import eslint from 'gulp-eslint';
 import friendlyFormatter from 'eslint-friendly-formatter';
 
 
-gulp.task("lint", () => {
+gulp.task("lint", ['templates'], () => {
     gulp.src([client.scripts + "main.js", client.scripts + "**/*.js", "!**/templateCache.js"])
         .pipe(eslint())
         // .pipe(eslint.format(friendlyFormatter))
@@ -44,14 +44,14 @@ gulp.task("lint", () => {
         }));
 });
 
-gulp.task('build:javascript', ['lint'], () => {
+gulp.task('javascript', ['lint'], () => {
     let b = watchify(browserify({
         entries: client.scripts + 'main.js',
         debug: true
     })
         .transform({ extensions: ['js'] }, babelify));
 
-    let stream =  b.bundle()
+    return b.bundle()
         .pipe(source('bundle.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({ loadMaps: true }))
@@ -60,9 +60,7 @@ gulp.task('build:javascript', ['lint'], () => {
         .on('error', gutil.log)
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest('./build/scripts/'));
-
-        stream.on('error', function() {
-            gutil.log(chalk.red('Error!!'));
-        });
+})
+gulp.task('build:javascript', ['javascript'], ()=>{
 
 })

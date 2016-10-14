@@ -1,4 +1,4 @@
-html(ng-module="app")
+html
     head
         title
         base(href="/")
@@ -6,7 +6,20 @@ html(ng-module="app")
         link(href='./css/utilities.css', rel='stylesheet')
         link(href='./css/main.css', rel='stylesheet')
     body
-        nav
-        main
-        footer
+        header(ui-view="header")
+            nav
+        section(ng-if="loadingView").preloader
+            .windows8
+                #wBall_1.wBall
+                    .wInnerBall
+                #wBall_2.wBall
+                    .wInnerBall
+                #wBall_3.wBall
+                    .wInnerBall
+                #wBall_4.wBall
+                    .wInnerBall
+                #wBall_5.wBall
+                    .wInnerBall
+        section(ui-view="").container.container-ui-view
+        footer(ui-view="footer")
         script(src='./scripts/bundle.js')
