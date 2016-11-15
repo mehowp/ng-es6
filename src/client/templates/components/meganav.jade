@@ -1,0 +1,3 @@
+ul.container.meganav
+    li(ng-repeat="item in $ctrl.navigation")
+        a(ui-sref="parent.{{item.link}}" ng-bind="item.link")
