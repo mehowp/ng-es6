@@ -1,7 +1,7 @@
 {
-  "name": "vueApp",
+  "name": "nucleus",
   "version": "0.0.1",
-  "description": "Boilerplate for learning curve - migrating from angular structure to VueJS",
+  "description": "Boilerplate for learnin",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.8",
@@ -64,7 +64,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mehowp/vueApp.git"
+    "url": "https://github.com/mehowp/ng-es6.git"
   },
   "browserify": {
     "transform": [
