@@ -44,6 +44,7 @@
     "path": "^0.12.7",
     "postcss": "^5.2.4",
     "postcss-combine-duplicated-selectors": "^2.1.1",
+    "postcss-discard-duplicates": "^2.0.2",
     "postcss-discard-unused": "^2.2.1",
     "pump": "^1.0.1",
     "recursive-readdir": "^2.1.0",
@@ -57,7 +58,7 @@
   "scripts": {
     "start": "gulp --silent",
     "client": "gulp build:client",
-    "postinstall": "gulp build:client"
+    "postinstall": "gulp"
   },
   "repository": {
     "type": "git",

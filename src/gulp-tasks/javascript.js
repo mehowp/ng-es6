@@ -10,13 +10,10 @@ import gutil from 'gulp-util';
 import chalk from 'chalk';
 
 import eslint from 'gulp-eslint';
-import friendlyFormatter from 'eslint-friendly-formatter';
-
 
 gulp.task("lint", () => {
     gulp.src([client.scripts + "main.js", client.scripts + "**/*.js", "!**/templateCache.js"])
         .pipe(eslint())
-        // .pipe(eslint.format(friendlyFormatter))
         .pipe(eslint.result(result => {
             // Called for each ESLint result. 
 

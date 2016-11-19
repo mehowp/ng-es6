@@ -7,8 +7,10 @@ import autoprefixer from 'autoprefixer';
 import splitSelectors from 'postcss-combine-duplicated-selectors';
 import packMediaQuery from 'css-mqpacker';
 import discardUnused from 'postcss-discard-unused';
+import discardDuplicates from 'postcss-discard-duplicates';
 
-let processors = [autoprefixer, splitSelectors, packMediaQuery, discardUnused];
+let processors = [autoprefixer, splitSelectors, 
+                packMediaQuery, discardUnused, discardDuplicates];
 
 
 gulp.task('sass:utilities', () => {

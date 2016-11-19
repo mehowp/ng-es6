@@ -1,0 +1,32 @@
+    @import "../variables";
+    @for $value from 5 to 30 {
+        @each $breakpoint,
+        $size in $fontSizes {
+            @if($breakpoint==x) {
+                .lh-#{$value} {
+                    $final: calc((#{$value} * #{$size}) * #{$countByFont});
+                    line-height: $final;
+                }
+                .fs-#{$value} {
+                    $final: calc((#{$value} * #{$size}) * #{$countByFont});
+                    font-size: $final;
+                }
+            }
+            @if($breakpoint !=x) {
+                .lh-#{$value}-#{$breakpoint} {
+                    @include respond-to($breakpoint) {
+                        $final: calc((#{$value} * #{$size}) * #{$countByFont});
+                        line-height: $final;
+                    }
+                }
+            }
+            @if($breakpoint !=x) {
+                .fs-#{$value}-#{$breakpoint} {
+                    @include respond-to($breakpoint) {
+                        $final: calc((#{$value} * #{$size}) * #{$countByFont});
+                        font-size: $final;
+                    }
+                }
+            }
+        }
+    }

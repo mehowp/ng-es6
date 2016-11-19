@@ -1,8 +1,7 @@
-@mixin grid-row {
-    flex: 1;
-}
+@import "../variables";
 
 @mixin row-basics {
+    display: inline-block;
 }
 
 @for $col from 1 through $columns {
@@ -10,7 +9,6 @@
     .w-#{$col} {
         width: ((100 / $columns) * $col) * 1%;
         @include row-basics;
-
     }
     /* with margin */
     .c-#{$col} {
@@ -20,17 +18,24 @@
             margin-right: 1%;
             margin-bottom: 1%;
         }
-
+        &-set {
+            width: ((100 / $columns) * $col) * 1%;
+            @include row-basics;
+            @if ($col < $columns) {
+                margin-right: 0;
+                margin-bottom: 1%;
+            }
+        }
     }
 }
 
-@each $breakpoint, $size in $baseSizes {
-     @for $col from 1 through $columns{
+@each $breakpoint,
+$size in $baseSizes {
+    @for $col from 1 through $columns {
         /* with margin */
         .w-#{$col}-#{$breakpoint} {
             @include respond-to($breakpoint) {
                 width: ((100 / $columns) * $col) * 1%;
-
                 @include row-basics;
             }
         }
@@ -38,15 +43,9 @@
         .c-#{$col}-#{$breakpoint} {
             @include respond-to($breakpoint) {
                 width: ((100 / $columns) * $col) * 1%;
-                float: left;
-
                 @include row-basics;
                 @if ($col < $columns) {
                     margin-right: 1%;
-                }
-                &-set {
-                  margin-right: 0;
-                  margin-bottom: 0;
                 }
             }
         }
@@ -60,19 +59,34 @@
 }
 
 .container {
-  max-width:90%;
-  padding-left: 0.5%;
-  padding-right: 0.5%;
-  margin-left: auto;
-  margin-right: auto;
-  flex:1;
+    max-width: 90%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .container-fluid {
-  min-width: 100%;
-  width: 100%;
+    display: block;
+    min-width: 100%;
+    width: 100%;
 }
 
-.row {
-  flex-direction: row;
+.block {
+    display: block;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.table {
+    display: table;
+    &-row {
+        display: table-row;
+    }
+    &-cell {
+        display: table-cell;
+    }
 }
