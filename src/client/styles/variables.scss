@@ -13,7 +13,7 @@ $fontSizes: ( s: 4.7vw, m: 2.08vw, l: 16px, x: 16px );
 $range: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 $fwRange: (100, 200, 300, 400, 500, 600, 700, 800, 900);
 
-$countBy: 7;
+$countBy: 1.5;
 $countByFont: 0.1;
 
 @mixin respond-to($media) {
